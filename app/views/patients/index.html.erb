@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">
-<h1>Lsting Patients</h1>
+<h1>Listing Patients</h1>
 <div class="pull-right range-query">
     <%= form_tag patients_path, method: :get do %>
       <%= text_field_tag 'search[date_from]', @search.date_from %>
