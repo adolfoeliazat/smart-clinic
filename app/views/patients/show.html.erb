@@ -40,5 +40,9 @@
   <%= @patient.observations %>
 </p>
 
+<div>
+  <%= link_to 'Add Referral', new_patient_referral_path(@patient) %>
+</div>
+
 <%= link_to 'Edit', edit_patient_path(@patient) %> |
 <%= link_to 'Back', patients_path %>

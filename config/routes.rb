@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get 'welcome/features'
 
-  resources :patients
+  resources :patients do
+  	resources :referrals
+  	end
  root to: 'welcome#index'
 end

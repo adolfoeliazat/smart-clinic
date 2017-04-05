@@ -1,0 +1,45 @@
+<%= form_for([@patient, @patient.referrals.build]) do |f| %>
+
+	<div class="control-group">
+        <%= f.label :name, class: 'control-label' %><br>
+      <div class="controls">
+        <%= f.text_field :name %>
+      </div>
+    </div>
+
+    <div class="control-group">
+        <%= f.label :address, class: 'control-label' %><br>
+      <div class="controls">
+        <%= f.text_area :address %>
+      </div>
+    </div>
+
+	<div class="control-group">
+        <%= f.label :dob, class: 'control-label' %><br>
+      <div class="controls">
+        <%= f.date_field :dob %>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+        <%= f.label :phone, class: 'control-label' %><br>
+      <div class="controls">
+        <%= f.text_field :phone %>
+      </div>
+    </div>
+  
+ 	<div class="control-group">
+        <%= f.label :consultation, class: 'control-label' %><br>
+      <div class="controls">
+        <%= f.text_area :consultation %>
+      </div>
+    </div>
+  
+ 	<div class="control-group">
+      <div class="controls">
+        <%= f.submit %>
+      </div>
+    </div>
+
+ 
+<% end %>

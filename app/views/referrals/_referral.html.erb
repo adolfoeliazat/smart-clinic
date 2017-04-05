@@ -1,0 +1,8 @@
+<p><%= referral.name %></p>
+<p><%= referral.address %></p>
+<p><%= referral.dob %></p>
+<p><%= referral.phone %></p>
+<p><%= referral.consultation %></p>
+
+<%= link_to "Delete", patient_referral_path(referral.patient, referral), 
+method: :delete, data: {confirm: "Are you sure?"} %>
