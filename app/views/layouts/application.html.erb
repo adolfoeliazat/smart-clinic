@@ -14,8 +14,13 @@
 		<ul class="nav nav-tabs">
 		  <li><%= link_to "Smart-Clinic@NCI", root_path %></li>
 		 
-		  
 		  <ul class="nav navbar-nav navbar-right ">
+			
+			<% if user_signed_in? %>
+				<li><%= link_to "Patients", patients_path %></li>
+		  		<li><%= link_to "Hospitals", hospitals_path %></li>
+				<li><%= link_to 'Add New Patient', new_patient_path %>
+			<% end %>
 
 			<% if current_user %>
 			  <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
@@ -23,17 +28,8 @@
 				<li><%= link_to "Sign Up", new_user_registration_path %></li>
 				<li><%= link_to "Log In", new_user_session_path %></li>
 			<% end %>
-
-			
-				<% if user_signed_in? %>
-				<li><%= link_to "Patients", patients_path %></li>
-		  <li><%= link_to "Hospitals", hospitals_path %></li>
-					<li><%= link_to 'Add New Patient', new_patient_path %>
-					<% end %>
-				</ul>
+		  </ul>
   		</ul>
-
-
 
 		<% if flash[:notice] %>
 			<div class="alert alert-success">
@@ -48,13 +44,10 @@
 		<% elsif flash[:alert] %>
 			<div class="alert">
 				<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<%= flash[:alert] %>
+				<%= flash[:alert] %>
 			</div>
-
-				
-
-		<% end %>
-      <%= yield %>
-    </div>
-  </body>
-</html>
+		  <% end %>
+        <%= yield %>
+      </div>
+    </body>
+  </html>

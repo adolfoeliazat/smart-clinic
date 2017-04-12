@@ -1,14 +1,17 @@
 class ReferralsController < ApplicationController
 	before_action :find_patient
 	before_action :find_referral, only: [:destroy]
+
   def new
-    @referral = Referral.new
+    @referral = current_user.referrals.build
+    @hospitals = Hospital.all.map{ |h| [h.name, h.id]}
   end
 
   def create
-    @referral = Referral.new(referral_params)
+    @referral = current_user.referrals.build(referral_params)
     @referral.patient_id = @patient.id
     @referral.user_id = current_user.id
+    @referral.hospital_id = params[:hospital_id]
 
     if @referral.save
       redirect_to patient_path(@patient)
@@ -25,7 +28,7 @@ class ReferralsController < ApplicationController
 
   private
   def referral_params
-    params.required(:referral).permit(:name, :address, :dob, :phone, :consultation)
+    params.required(:referral).permit(:name, :address, :dob, :phone, :consultation, :hospital_id)
   end
 
   def find_patient

@@ -1,5 +1,7 @@
 <%= form_for([@patient, @patient.referrals.build]) do |f| %>
 
+  <%= select_tag(:hospital_id, options_for_select(@hospitals), :prompt => "Select a hospital") %>
+
 	<div class="control-group">
         <%= f.label :name, class: 'control-label' %><br>
       <div class="controls">
