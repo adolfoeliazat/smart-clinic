@@ -1,4 +1,4 @@
 class Patient < ApplicationRecord
-	
-has_many :referrals	
+	belongs_to :user
+	has_many :referrals	
 end
