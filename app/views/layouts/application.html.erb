@@ -9,14 +9,15 @@
   </head>
 
   <body>
-
+<nav class="navbar navbar-default">
 <div class="container">
 		<ul class="nav nav-tabs">
-		  <li><%= link_to "Smart-Clinic@NCI", root_path %></li>
+		  <li><%= link_to "Smart-Clinic@NCI", root_path, class: "navbar-brand" %></li>
 		 
 		  <ul class="nav navbar-nav navbar-right ">
 			
 			<% if user_signed_in? %>
+				
 				<li><%= link_to "Patients", patients_path %></li>
 		  		<li><%= link_to "Hospitals", hospitals_path %></li>
 				<li><%= link_to 'Add New Patient', new_patient_path %>
@@ -47,7 +48,12 @@
 				<%= flash[:alert] %>
 			</div>
 		  <% end %>
-        <%= yield %>
+      
       </div>
+      </nav>
+
+      <div class="container">
+    <%= yield %>
+</div>
     </body>
   </html>
